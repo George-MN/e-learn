@@ -32,7 +32,7 @@ class Course extends CI_Model{
 
 	function getCourseByCode($courseCode)
 	{
-		$this->db->select('duration, category');
+		$this->db->select('duration, coursetype');
 		$this->db->from('course');
 		$this->db->where('coursecode',$courseCode);
 		$query=$this->db->get();

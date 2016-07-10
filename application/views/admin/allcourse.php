@@ -405,7 +405,7 @@ else{
  }?>  
 <tr class="gradeX">
  <td><?php echo $r['coursename']; ?></td>
- <td><?php echo $r['category']; ?></td>
+ <td><?php echo $r['coursetype']; ?></td>
  <td><?php echo $r['coursecode']; ?></td>
  <td><?php echo $r['duration']; ?></td>
  <td><?php echo $r['testNo']; ?></td>

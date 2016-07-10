@@ -521,7 +521,7 @@ else{
                 {
                     var responseObj = $.parseJSON(responseStr);
                     $('#duration').val(responseObj[0]['duration']);
-                    $('#category').val(responseObj[0]['category']);
+                    $('#category').val(responseObj[0]['coursetype']);
 
                 });
                 
