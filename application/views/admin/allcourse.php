@@ -399,6 +399,7 @@ else{
 </tr>
 </thead>
 <tbody>
+<?php if($courses){ ?>
  <?php foreach ($courses as $r): {
      # code...
  }?>  
@@ -412,6 +413,7 @@ else{
 
 </tr>
 <?php endforeach; ?>
+<?php } ?>
 
 
 </tbody>

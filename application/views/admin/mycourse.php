@@ -386,9 +386,11 @@ else{
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php if($mycourses){ ?>
                                      <?php foreach ($mycourses as $r): {
+                                    }
      # code...
-                                             }?>  
+                                             ?>  
                                             <tr>
                                              <td><?php echo $r['coursename']; ?></td>
                                              <td><?php echo $r['coursetype']; ?></td>
@@ -398,6 +400,7 @@ else{
 
                                             </tr>
                                             <?php endforeach; ?>
+                                            <?php } ?>
                                     
                                     </tbody>
                                 </table>
