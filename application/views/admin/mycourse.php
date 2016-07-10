@@ -420,10 +420,11 @@ else{
                                     <div class="modal-content">
                                         <div class="modal-body">
                                  <div class="row">
+                                  <?php echo form_open('courses/registercourse'); ?>
                                  <div class="form-group"><label class="col-sm-2 control-label">Course</label>
 
                                 <div class="col-sm-10">
-                                <select class="form-control" id="courses">
+                                <select class="form-control" id="courses" name="coursecode">
                                 <option></option>
                                     <?php 
                                         foreach ($allcourse as $r)
@@ -433,12 +434,11 @@ else{
                                     ?> 
                                 </select> 
                                 </div>
-                                </div>
                                 <div class="hr-line-dashed"></div>
 
                                 <div class="form-group"><label class="col-sm-2 control-label">Category</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control"
+                                        <input type="text" name="category" class="form-control"
                                         id="category"
                                         disabled > 
                                     </div>
@@ -453,13 +453,19 @@ else{
                                        disabled>
                                     </div>
                                 </div></br></br>
-                                
-                                 <div class="form-group">
+                                <div class="col-sm-10"><input type="submit" class="btn btn-primary" value="Register"></div>
 
-                                    <div class="col-sm-10"><input type="submit" class="btn btn-primary" value="Register"></div>
+
                                 </div>
+                                
+                                
+                                
+                                
+
+                               
 
                                                 </div>
+                                                </form>
                                                
                                         </div>
                                     </div>

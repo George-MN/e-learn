@@ -44,6 +44,15 @@ class Courses extends CI_controller{
 		echo json_encode($data);
 	}
 
+	function registercourse(){
+		$coursecode= $this -> input->post('coursecode');
+		// $courseduration=$this-> input->post('duration');
+		// $coursecategory=$this-> input->post('category');
+		$data= $this->course->registercourse($coursecode);
+		
+		
+	}
+
 }
 
 ?>
