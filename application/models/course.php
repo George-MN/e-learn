@@ -47,5 +47,12 @@ class Course extends CI_Model{
 		return $query->result_array();
 
 	}
+	function registercourse($coursecode,$user_id){
+		$this->db->insert('coursecode','user_id');
+		$this->db->into('courseregister');
+		$this->db->values($coursecode,$user_id);
+		$query=$this->db->get();
+
+	}
 }
   ?>
