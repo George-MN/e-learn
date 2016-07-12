@@ -49,7 +49,10 @@ class Courses extends CI_controller{
 		// $courseduration=$this-> input->post('duration');
 		// $coursecategory=$this-> input->post('category');
 		$userid=($this->session->userdata['logged_in']['userid']);
-		$data= $this->course->registercourse($coursecode,$userid);
+		if($this->course->registercourse($coursecode,$userid)){
+			$data='course registered successfully';
+			$this->load->view('admin/mycourse',$data);
+		}
 		
 		
 	}
