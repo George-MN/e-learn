@@ -53,6 +53,11 @@ class Courses extends CI_controller{
 			$data='course registered successfully';
 			$this->load->view('admin/mycourse',$data);
 		}
+		else{
+            $data='course could not be registered ';
+            $this->load->view('admin/mycourse',$data);
+
+        }
 		
 		
 	}
