@@ -52,6 +52,9 @@ class Course extends CI_Model{
 		$this->db->into('courseregister');
 		$this->db->values($coursecode,$user_id);
 		$query=$this->db->get();
+		if($query){
+			
+		}
 
 	}
 }
