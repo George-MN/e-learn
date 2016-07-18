@@ -53,7 +53,7 @@ class Course extends CI_Model{
 		$this->db->values($coursecode,$user_id);
 		$query=$this->db->get();
 		if($query){
-			
+			return $response;
 		}
 
 	}
