@@ -475,6 +475,7 @@ else{
                         
         </div>
         </div>
+        
         <div class="footer">
             <div class="pull-right">
                 
@@ -541,6 +542,14 @@ else{
             });
         });
     </script>
+    <?php 
+          if($report){
+            echo "<script>alert('".$report."');</script>";
+            
+          }
+
+
+        ?>
 
 </body>
 

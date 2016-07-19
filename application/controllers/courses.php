@@ -49,15 +49,36 @@ class Courses extends CI_controller{
 		// $courseduration=$this-> input->post('duration');
 		// $coursecategory=$this-> input->post('category');
 		$userid=($this->session->userdata['logged_in']['userid']);
-		if($this->course->registercourse($coursecode,$userid)){
-			$data='course registered successfully';
-			$this->load->view('admin/mycourse',$data);
+		$regdata = array('coursecode' => $coursecode,
+		                  'user_id' => $userid);
+
+		$result=$this->course->registercourse($regdata,$coursecode);
+		if($result>0){
+			$this->mycourses();
 		}
 		else{
-            $data='course could not be registered ';
-            $this->load->view('admin/mycourse',$data);
+            $data['report']='The course is already registered';
+            $userid=($this->session->userdata['logged_in']['userid']);
+    $data['mycourses']=$this->course->mycourses($userid);
+    $data['allcourse']=$this->course->allcourses();
+    if($data){
+    	$this->load->view('admin/mycourse',$data);
+    }
+    else{
+    	$data['mycourses']='';
+    	$this->load->view('admin/mycourse',$data);
+    }
+		}
 
-        }
+// 		if($this->course->registercourse($coursecode,$userid)){
+// 			$data='course registered successfully';
+// 			$this->load->view('admin/mycourse',$data);
+// 		}
+// 		else{
+//             $data='course could not be registered ';
+//             $this->load->view('admin/mycourse',$data);
+
+//         }
 		
 		
 	}

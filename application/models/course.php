@@ -16,9 +16,10 @@ class Course extends CI_Model{
 		
 	}
 	function mycourses($studentid){
-      $this->db->select('registration_id,coursename,coursecode,coursetype');
+      $this->db->select('courseregister.registration_id,course.coursename,courseregister.coursecode,course.coursetype');
 		$this->db->from('courseregister');
-		$this->db->where('user_id',$studentid);
+		$this->db->join('course','courseregister.coursecode=course.coursecode','left');
+		$this->db->where('courseregister.user_id',$studentid);
 		$query=$this->db->get();
 		if($query->num_rows()>0){
 			return $query->result_array();
@@ -47,14 +48,41 @@ class Course extends CI_Model{
 		return $query->result_array();
 
 	}
-	function registercourse($coursecode,$user_id){
-		$this->db->insert('coursecode','user_id');
-		$this->db->into('courseregister');
-		$this->db->values($coursecode,$user_id);
-		$query=$this->db->get();
-		if($query){
-			return $response;
+	function registercourse($regdata,$coursecode){
+		$checkresult=$this->checkcourse($coursecode);
+          if($checkresult==0){
+          	$this->db->insert('courseregister',$regdata);
+          	if($this->db->affected_rows()>0){
+			return $this->db->affected_rows();
+
 		}
+		else{
+			return false;
+		}
+          }
+          else{
+          	return false;
+          }
+		
+		
+		
+
+	}
+	function checkcourse($code){
+		$userid=($this->session->userdata['logged_in']['userid']);
+		$this->db->select('coursecode');
+		$this->db->from('courseregister');
+		$this->db->where('coursecode',$code);
+		$this->db->where('user_id',$userid);
+		$query=$this->db->get();
+		if($this->db->affected_rows()>0){
+			return $this->db->affected_rows();
+
+		}
+		else{
+			return false;
+		}
+		
 
 	}
 }
