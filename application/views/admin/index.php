@@ -48,7 +48,7 @@ else{
                                 <li><a href="contacts.html">Contacts</a></li>
                                 <li><a href="mailbox.html">Mailbox</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?php echo base_url(); ?>index.php/hades/logout">Logout</a></li>
+                                <li><a href="<?php echo base_url(); ?>hades/logout">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -59,21 +59,21 @@ else{
                         <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> <span ></span></a>
                        <!--  <ul class="nav nav-second-level">
                             <li class="active"><a href="index.html">Dashboard v.1</a></li>
-                            <li ><a href="<?php //echo base_url(); ?>index.php/hades/dash2">Dashboard v.2</a></li>
+                            <li ><a href="<?php //echo base_url(); ?>hades/dash2">Dashboard v.2</a></li>
                             <li ><a href="dashboard_3.html">Dashboard v.3</a></li>
                             <li ><a href="dashboard_4_1.html">Dashboard v.4</a></li>
                         </ul> -->
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/courses/allcourses"><i class="fa fa-diamond"></i> <span class="nav-label">Register courses</span> <!-- <span class="label label-primary pull-right">NEW</span> --></a>
+                        <a href="<?php echo base_url(); ?>courses/allcourses"><i class="fa fa-diamond"></i> <span class="nav-label">Register courses</span> <!-- <span class="label label-primary pull-right">NEW</span> --></a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url(); ?>index.php/courses/mycourses"><i class="fa fa-diamond"></i> <span class="nav-label">My-courses</span><!--  <span class="label label-primary pull-right">NEW</span> --></a>
+                        <a href="<?php echo base_url(); ?>courses/mycourses"><i class="fa fa-diamond"></i> <span class="nav-label">My-courses</span><!--  <span class="label label-primary pull-right">NEW</span> --></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Notes</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="<?php echo base_url(); ?>index.php/courses/content">Text</a></li>
+                            <li><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
                             <li><a href="graph_morris.html">PDF</a></li>
                             <li><a href="graph_rickshaw.html">Audio</a></li>
                             <li><a href="graph_rickshaw.html">Video</a></li>
