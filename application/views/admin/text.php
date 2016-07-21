@@ -366,7 +366,7 @@ else{
            <div class="form-group"><label class="col-sm-2 control-label">Select Course</label>
 
                                     <div class="col-sm-10">
-                                    <select class="form-control m-b" name="account">
+                                    <select class="form-control m-b" name="account" id="courseid">
                                         <option>option 1</option>
                                         <option>option 2</option>
                                         <option>option 3</option>

@@ -29,6 +29,8 @@ class Courses extends CI_controller{
 	
 	}
 	function content(){
+		$data['recourse']=$this->course->mycourses();
+
 		$this->load->view('admin/text');
 	}
 	function study(){
