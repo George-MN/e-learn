@@ -34,6 +34,7 @@ class Courses extends CI_controller{
 		$this->load->view('admin/text');
 	}
 	function study(){
+		$_Get=;
 	$code=1;	
      $data['result']=$this->course->content($code);
      $this->load->view('admin/article',$data);
