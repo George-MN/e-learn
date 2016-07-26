@@ -41,11 +41,38 @@ class Course extends CI_Model{
 	}
 
 	function content($code){
-		 $this->db->select('text');
-		$this->db->from('text');
-		$this->db->where('textid',$code);
+		$userid= $this->session->userdata['logged_in']['userid'];
+		$this->db->select('topicid, topicnumber');
+		$this->db->from('session');
+		$this->db->where('coursecode',$code);
+		$this->db->where('user_id',$userid);
 		$query=$this->db->get();
-		return $query->result_array();
+		if($this->db->affected_rows()>0){
+			// print_r($query);
+			// echo $query['topicid'][1];
+			//echo "huree";
+			$row=$query->row();
+			$topic=$row->topicid;
+			$topicnum=$row->topicnumber;
+
+	    $this->db->select('text');
+		$this->db->from('text');
+		$this->db->where('topicid',$topic);
+		$this->db->where('topicnumber',$topicnum);
+		$query1=$this->db->get();
+        //echo $this->db->affected_rows();
+		return $query1->result_array();
+         }
+		
+         else{
+         	echo "gotcha";
+  //        	 $this->db->select('text');
+		// $this->db->from('text');
+		// $this->db->where('textid',$code);
+		// $query=$this->db->get();
+		// return $query->result_array();
+         }
+		
 
 	}
 	function registercourse($regdata,$coursecode){
