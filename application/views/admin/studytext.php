@@ -3,25 +3,22 @@
 
 <head>
 
-   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HEALTH | Elearning</title>
+    <title>HEALTH | E-learning</title>
 
-    <link href="<?php echo base_url(); ?>tempcss/css/bootstrap.min.css" rel="stylesheet">
+     <link href="<?php echo base_url(); ?>tempcss/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>tempcss/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Data Tables -->
-    <link href="<?php echo base_url(); ?>tempcss/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>tempcss/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>tempcss/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="<?php echo base_url(); ?>tempcss/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <link href="<?php echo base_url(); ?>tempcss/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>tempcss/css/style.css" rel="stylesheet">
 
-</head>
+
 
 </head>
 
@@ -38,7 +35,7 @@ else{
 
     <div id="wrapper">
 
-   <nav class="navbar-default navbar-static-side" role="navigation">
+     <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
@@ -53,7 +50,7 @@ else{
                                 <li><a href="contacts.html">Contacts</a></li>
                                 <li><a href="mailbox.html">Mailbox</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?php echo base_url(); ?>index.php/hades/logout">Logout</a></li>
+                                <li><a href="<?php echo base_url(); ?>hades/logout">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -61,25 +58,25 @@ else{
                         </div>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/hades/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> <span ></span></a>
+                        <a href="<?php echo base_url(); ?>hades/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> <span ></span></a>
                        <!--  <ul class="nav nav-second-level">
                             <li class="active"><a href="index.html">Dashboard v.1</a></li>
-                            <li ><a href="<?php //echo base_url(); ?>index.php/hades/dash2">Dashboard v.2</a></li>
+                            <li ><a href="<?php //echo base_url(); ?>hades/dash2">Dashboard v.2</a></li>
                             <li ><a href="dashboard_3.html">Dashboard v.3</a></li>
                             <li ><a href="dashboard_4_1.html">Dashboard v.4</a></li>
                         </ul> -->
                     </li>
                     
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/courses/allcourses"><i class="fa fa-diamond"></i> <span class="nav-label">Register courses</span> <!-- <span class="label label-primary pull-right">NEW</span> --></a>
+                        <a href="<?php echo base_url(); ?>courses/allcourses"><i class="fa fa-diamond"></i> <span class="nav-label">Register courses</span> <!-- <span class="label label-primary pull-right">NEW</span> --></a>
                     </li>
-                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/courses/mycourses"><i class="fa fa-diamond"></i> <span class="nav-label">My-courses</span><!--  <span class="label label-primary pull-right">NEW</span> --></a>
+                     <li >
+                        <a href="<?php echo base_url(); ?>courses/mycourses"><i class="fa fa-diamond"></i> <span class="nav-label">My-courses</span><!--  <span class="label label-primary pull-right">NEW</span> --></a>
                     </li>
-                    <li class="active">
+                    <li  class="active">
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Notes</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="<?php echo base_url(); ?>index.php/courses/content">Text</a></li>
+                            <li  class="active"><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
                             <li><a href="graph_morris.html">PDF</a></li>
                             <li><a href="graph_rickshaw.html">Audio</a></li>
                             <li><a href="graph_rickshaw.html">Video</a></li>
@@ -344,16 +341,16 @@ else{
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Study</h2>
+                    <h2>Article</h2>
                     <ol class="breadcrumb">
                         <li>
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a>Text</a>
+                            <a>Study</a>
                         </li>
                         <li class="active">
-                            <strong>Select course</strong>
+                            <strong></strong>
                         </li>
                     </ol>
                 </div>
@@ -363,37 +360,26 @@ else{
             </div>
 
         <div class="wrapper wrapper-content  animated fadeInRight article">
-           <div class="row">
+            <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="ibox">
                         <div class="ibox-content">
-                            <div class="pull-right">
-                                <button class="btn btn-white btn-xs" type="button">Model</button>
-                                <button class="btn btn-white btn-xs" type="button">Publishing</button>
-                                <button class="btn btn-white btn-xs" type="button">Modern</button>
-                            </div>
-                          
-                                            
-                                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                        <h5>Tags:</h5>
-                                        <button class="btn btn-primary btn-xs" type="button">Model</button>
-                                        <button class="btn btn-white btn-xs" type="button">Publishing</button>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="small text-right">
-                                        <h5>Stats:</h5>
-                                        <div> <i class="fa fa-comments-o"> </i> 56 comments </div>
-                                        <i class="fa fa-eye"> </i> 144 views
-                                    </div>
-                                </div>
-                            </div>
+                        <?php 
+                          if($result){
+                            foreach ($result as $r ): {
+                            
+                                echo $r['text'];
+
+                            }
+                             endforeach;
+                         
+                           
+                          }
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
-
 
 
         </div>
@@ -412,7 +398,8 @@ else{
 
 
     <!-- Mainly scripts -->
-    <script src="<?php echo base_url(); ?>tempcss/js/jquery-2.1.1.js"></script>
+   
+     <script src="<?php echo base_url(); ?>tempcss/js/jquery-2.1.1.js"></script>
     <script src="<?php echo base_url(); ?>tempcss/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>tempcss/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?php echo base_url(); ?>tempcss/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -420,6 +407,7 @@ else{
     <!-- Custom and plugin javascript -->
     <script src="<?php echo base_url(); ?>tempcss/js/inspinia.js"></script>
     <script src="<?php //echo base_url(); ?>tempcss/js/plugins/pace/pace.min.js"></script>
+
 
 </body>
 

@@ -29,16 +29,21 @@ class Courses extends CI_controller{
 	
 	}
 	function content(){
-		$data['recourse']=$this->course->mycourses();
+		//$code=$this->uri->segment(3);
+		//$data['recourse']=$this->course->mycourses();
 
 		$this->load->view('admin/text');
 	}
 	function study(){
-		$code=$this->uri->segment(3);
-		//echo $code;
+
+		$code= $this->input->post("id");
+		
 		
       $data['result']= $this->course->content($code);
-     $this->load->view('admin/article',$data);
+      if($data){
+      	//echo "meee";
+     $this->load->view('admin/studytext',$data);
+ }
 	}
 
 	function getCourseByCode()

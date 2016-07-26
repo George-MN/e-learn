@@ -395,7 +395,12 @@ else{
                                              <td><?php echo $r['coursename']; ?></td>
                                              <td><?php echo $r['coursetype']; ?></td>
                                              <td><?php echo $r['coursecode']; ?></td>
-                                             <td><a href="<?php echo base_url(); ?>courses/study/<?php echo $r['coursecode'] ?>" class="btn btn-primary ">Study</a></td>
+                                             <td> 
+                                             <form name="myform" id="myform" action="<?php echo base_url() ?>courses/study" method="post">
+                                                 <input type="hidden" name="id" id="id" value="<?php echo $r['coursecode'] ?>" />
+                                                 <input type="submit" class="btn btn-primary " value="Study" />
+                                                 </form></td>
+                                             
 
 
                                             </tr>

@@ -55,7 +55,7 @@ class Course extends CI_Model{
 			$topic=$row->topicid;
 			$topicnum=$row->topicnumber;
 
-	    $this->db->select('text');
+	    $this->db->select('text,topicid,topicnumber');
 		$this->db->from('text');
 		$this->db->where('topicid',$topic);
 		$this->db->where('topicnumber',$topicnum);
@@ -65,12 +65,14 @@ class Course extends CI_Model{
          }
 		
          else{
-         	echo "gotcha";
-  //        	 $this->db->select('text');
-		// $this->db->from('text');
-		// $this->db->where('textid',$code);
-		// $query=$this->db->get();
-		// return $query->result_array();
+         	
+        $this->db->select('topic.topicid,text.text,text.topicnumber');
+		$this->db->from('topic');
+		$this->db->join('text','text.topicid=topic.topicid', 'right');
+		$this->db->where('topic.coursecode',$code);
+		$this->db->limit(1);
+		$query2=$this->db->get();
+		return $query2->result_array();
          }
 		
 
