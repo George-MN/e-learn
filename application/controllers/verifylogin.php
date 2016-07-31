@@ -9,6 +9,7 @@ class Verifylogin extends CI_controller {
     }
 
     function index() {
+        
         //credential validation
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
