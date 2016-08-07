@@ -78,7 +78,7 @@ else{
                             <li><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
                             <li><a href="graph_morris.html">PDF</a></li>
                             <li><a href="graph_rickshaw.html">Audio</a></li>
-                            <li><a href="graph_rickshaw.html">Video</a></li>
+                            <li><a href="<?php echo base_url(); ?>courses/videos">Video</a></li>
                            
                         </ul>
                     </li>
