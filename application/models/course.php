@@ -114,5 +114,18 @@ class Course extends CI_Model{
 		
 
 	}
+	function videos(){
+		$this->db->select('*');
+		$this->db->from('video');
+		$this->db->where('topicid',1);
+		$muquery=$this->db->get();
+		if($this->db->affected_rows()>0){
+			 
+			return $muquery->result_array();
+		}
+		else{
+			return false;
+		}
+	}
 }
   ?>

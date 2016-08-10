@@ -92,7 +92,8 @@ class Courses extends CI_controller{
 		
 	}
 	function videos(){
-		$this->load->view('admin/videos');
+		$data['videos']=$this->course->videos();
+		$this->load->view('admin/videos',$data);
 	}
 
 }

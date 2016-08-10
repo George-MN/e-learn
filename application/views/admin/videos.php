@@ -19,24 +19,10 @@
     <link href="<?php echo base_url(); ?>tempcss/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>tempcss/css/style.css" rel="stylesheet">
     <script src="<?php echo base_url(); ?>tempcss/js/jquery-2.1.1.js"></script>
-    <script src="<?php echo base_url(); ?>tempcss/js/jquery.hvideo.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo base_url(); ?>tempcss/js/hvideo-debug.js" type="text/javascript" charset="utf-8"></script>
+   
 <!--     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
  -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>tempcss/css/hvideo.css" type="text/css" media="screen" title="HTML5 video base style" charset="utf-8">
-        <script type="text/javascript" charset="utf-8">
-            $(function(){
-                $('#test1').hvideo({
-                    //autoresize: true
-                });
-                // Using hvideo-debug.js we can enable logging alot of stuff to console:
-                //hvideo.debug('#test1');
-            });
-        </script>
-        <style type="text/css" media="screen">
-            
-            #test1 { margin-top:20px; margin-left:20px; }
-        </style>
+    
 
 
 </head>
@@ -359,16 +345,16 @@ else{
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Modal Window</h2>
+                    <h2>Videos</h2>
                     <ol class="breadcrumb">
                         <li>
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a>Tables</a>
+                            <a>Study</a>
                         </li>
                         <li class="active">
-                            <strong>Modal Window</strong>
+                            <strong>videos</strong>
                         </li>
                     </ol>
                 </div>
@@ -378,180 +364,61 @@ else{
             </div>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <span class="label label-primary pull-right">NEW</span>
-                            <h5>IT-01 - Design Team</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="team-members">
-                                <a href="#"><img alt="member" class="img-circle" src="img/a1.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a2.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a3.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
-                            </div>
-                            <h4>Info about Design Team</h4>
-                            <p>
-                                It is a long established fact that a reader will be distracted by the readable content
-                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has.
-                            </p>
-                            <div>
-                                <span>Status of current project:</span>
-                                <div class="stat-percent">48%</div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 48%;" class="progress-bar"></div>
-                                </div>
-                            </div>
-                            <div class="row  m-t-sm">
-                            <div class="col-sm-4">
-                                 <div class="font-bold"></div>
-                                    
-                            </div>
-                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" align='center'>
-                                Launch demo modal
-                            </button>
-                            <div class="col-sm-4 text-right">
-                                <div class="font-bold"></div>
-                                     
-                            </div>
-                            </div>
-                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content animated bounceInRight">
-                                        <div id="test1" class="hvideo">
+            <div class="col-lg-4">
+           
+               
+                            
+                               
+                               
+                           
+                                            
                                                 
-                                                <video width="500" height="200"
-                                                       poster="http://hunch.se/tmp/Spotify_-_the_story.jpg"
-                                                       autobuffer>
-                                                  <source src="<?php echo base_url(); ?>resource/videos/SINACH - WAY MAKER.mp4"
-                                                          type="video/mp4">
-                                                  <!-- <source src="http://hunch.se/tmp/Spotify_-_the_story_720p.ogv"
-                                                          type="video/ogg"> -->
-                                                    <div class="fallback">
-                                                        You must have an HTML5 capable browser.
-                                                    </div>
-                                                </video>
-                                                <controls>
-                                                    <button class="play-pause paused" title="Toggle playback"></button>
-                                                    <extended>
-                                                        <bar class="position" title="Current position">
-                                                            <p class="meta">0:00</p>
-                                                        </bar>
-                                                        <bar class="total">
-                                                            <p class="meta" title="Total length">0:00</p>
-                                                        </bar>
-                                                        <bar class="buffered"></bar>
-                                                        <bar class="unbuffered"></bar>
-                                                        <button class="mute-audio" title="Mute/unmute audio"></button>
-                                                        <button class="zoom" title="Zoom in/out"></button>
-                                                    </extended>
-                                                </controls>
-                                            </div>
+                                           
+                                                    
+                                                          
+                                                 
+                                             
+                                   
+                   
+                   <?php if($videos){
+                      $count=1;
+                    foreach ($videos as $vid) {
+                        if($count==1 || $count %4==0){
+                            echo'';
+                        }
 
-                                           <!--  separate -->
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                            <i class="fa fa-laptop modal-icon"></i>
-                                            <h4 class="modal-title">Modal title</h4>
-                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                                printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                remaining essentially unchanged.</p>
-                                                    <div class="form-group"><label>Sample Input</label> <input type="email" placeholder="Enter your email" class="form-control"></div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                        <!-- separate -->
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                        ?>
+                    
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>IT-04 - Marketing Team</h5>
+                            <h5><?php echo $vid['videotitle'];?></h5>
                         </div>
                         <div class="ibox-content">
-                            <div class="team-members">
-                                <a href="#"><img alt="member" class="img-circle" src="img/a4.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a8.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a7.jpg"></a>
-                            </div>
-                            <h4>Info about Design Team</h4>
+                            
+                            
                             <p>
-                                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.
+                               <?php echo $vid['description'];?>
                             </p>
                             <div>
-                                <span>Status of current project:</span>
-                                <div class="stat-percent">32%</div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 32%;" class="progress-bar"></div>
-                                </div>
-                            </div>
-                            <div class="row  m-t-sm">
-                                <div class="col-sm-4">
-                                    <div class="font-bold">PROJECTS</div>
-                                    24
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="font-bold">RANKING</div>
-                                    3th
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <div class="font-bold">BUDGET</div>
-                                    $190,325 <i class="fa fa-level-up text-navy"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>IT-07 - Finance Team</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="team-members">
-                                <a href="#"><img alt="member" class="img-circle" src="img/a4.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a8.jpg"></a>
-                                <a href="#"><img alt="member" class="img-circle" src="img/a7.jpg"></a>
-                            </div>
-                            <h4>Info about Design Team</h4>
-                            <p>
-                                Uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                            </p>
-                            <div>
-                                <span>Status of current project:</span>
+                                
                                 <div class="stat-percent">73%</div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 73%;" class="progress-bar"></div>
+                                    <div style="width: 100%;" class="progress-bar"></div>
                                 </div>
                             </div>
                             <div class="row  m-t-sm">
-                                <div class="col-sm-4">
-                                    <div class="font-bold">PROJECTS</div>
-                                    11
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="font-bold">RANKING</div>
-                                    6th
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <div class="font-bold">BUDGET</div>
-                                    $560,105 <i class="fa fa-level-up text-navy"></i>
-                                </div>
+                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="<?php echo "#meModal".$count;?>" align="center">
+                                Watch video
+                            </button>
+                            
                             </div>
 
                         </div>
                     </div>
+                    <?php 
+                      $count++;
+                    }} ?>
+                    
                 </div>
                 <div class="col-lg-4">
                     <div class="ibox">
@@ -813,6 +680,49 @@ else{
 
         </div>
         </div>
+        <?php
+                        if($videos){
+                      $count=1;
+                    foreach ($videos as $vid) {
+
+                            echo'<div class="modal inmodal" id="meModal'.$count.'"  aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content animated bounceInRight">
+                                 <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            
+                                            <h2 class="modal-title">';
+                             echo $vid['videotitle'];
+                              echo'</h2>
+                                            
+                                        </div>
+                                        
+                                                
+                                                <video width="500" height="400"
+                                                       poster="http://hunch.se/tmp/Spotify_-_the_story.jpg"
+                                                       autobuffer controls>
+                                                  ';
+                                                  echo '<source src="'.base_url().'resource/'.$vid['videopath'].'"type="video/mp4">';
+                                                  echo'<div class="fallback">
+                                                        You must have an HTML5 capable browser.
+                                                    </div>
+                                                </video>
+                                         <div class="modal-header">
+                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" align="center">
+                                          View full screen
+                                            </button>
+                                            
+                                        </div> </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>';
+                    
+                        $count ++;
+                       }
+                   }
+                    ?>
 
     <!-- Mainly scripts -->
 <script src="<?php echo base_url(); ?>tempcss/js/bootstrap.min.js"></script>
