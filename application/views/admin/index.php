@@ -41,8 +41,8 @@ else{
                             <img alt="image" class="img-circle" src="<?php echo base_url(); ?>tempcss/img/profile_small.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">George maina</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $username; ?></strong>
+                             </span> <span class="text-muted text-xs block">Learner<b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a href="profile.html">Profile</a></li>
                                 <li><a href="contacts.html">Contacts</a></li>
@@ -232,7 +232,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                        <i class="fa fa-envelope"></i>  <span class="label label-warning"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -285,7 +285,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        <i class="fa fa-bell"></i>  <span class="label label-primary"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -427,7 +427,7 @@ else{
                     </div> -->
 
             </div>
-        <div class="row">
+        <div class="row"><!-- 
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content">
                         <div class="row">
@@ -768,7 +768,7 @@ else{
                         <strong>Copyright</strong> Example Company &copy; 2014-2015
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         </div>
@@ -781,7 +781,7 @@ else{
                 Small chat
             </div>
 
-            <div class="content">
+            <div class="content"><!-- 
 
                 <div class="left">
                     <div class="author-name">
@@ -837,7 +837,7 @@ else{
                     <div class="chat-message active">
                         I belive that. Lorem Ipsum is simply dummy text.
                     </div>
-                </div>
+                </div> -->
 
 
             </div>
