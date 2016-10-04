@@ -44,9 +44,9 @@ else{
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $username; ?></strong>
                              </span> <span class="text-muted text-xs block">Learner<b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="profile.html">Profile</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="mailbox.html">Mailbox</a></li>
+                                <li><a href="<?php echo base_url(); ?>user/profile">Profile</a></li>
+                                <li><a href="<?php echo base_url(); ?>user/notes">Notes</a></li>
+                              
                                 <li class="divider"></li>
                                 <li><a href="<?php echo base_url(); ?>hades/logout">Logout</a></li>
                             </ul>
@@ -65,7 +65,7 @@ else{
                         </ul> -->
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>courses/allcourses"><i class="fa fa-diamond"></i> <span class="nav-label">Register courses</span> <!-- <span class="label label-primary pull-right">NEW</span> --></a>
+                        <a href="<?php echo base_url(); ?>courses/allcourses"><i class="fa fa-diamond"></i> <span class="nav-label">All-courses</span> <!-- <span class="label label-primary pull-right">NEW</span> --></a>
                     </li>
                      <li>
                         <a href="<?php echo base_url(); ?>courses/mycourses"><i class="fa fa-diamond"></i> <span class="nav-label">My-courses</span><!--  <span class="label label-primary pull-right">NEW</span> --></a>
@@ -74,41 +74,48 @@ else{
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Notes</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
-                            <li><a href="graph_morris.html">PDF</a></li>
-                            <li><a href="graph_rickshaw.html">Audio</a></li>
-                            <li><a href="graph_rickshaw.html">Video</a></li>
-                           
+                            <li><a href="<?php echo base_url(); ?>courses/mypdf">PDF</a></li>
+                            <li><a href="<?php echo base_url(); ?>courses/audio">Audio</a></li>
+                            <li><a href="<?php echo base_url(); ?>courses/video">Video</a></li>
+
                         </ul>
                     </li>
+                    <li>
+                       <a href="<?php echo base_url(); ?>courses/assignment"><i class="fa fa-diamond"></i> <span class="nav-label">Assignments</span><!--  <span class="label label-primary pull-right">NEW</span> --></a>
+                   </li>
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Exams </span><!-- <span class="label label-warning pull-right">16/24</span> --></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Online tests</a></li>
-                            <li><a href="mail_detail.html">Quiz</a></li>
-                            
+
+                            <li><a href="<?php echo base_url(); ?>quiz/myquiz">Quiz</a></li>
+
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Progress</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="form_basic.html">Exams</a></li>
-                            <li><a href="form_advanced.html">Courses</a></li>
-                            
+                            <li><a href="<?php echo base_url(); ?>progress/quiz">Quiz</a></li>
+                            <li><a href="<?php echo base_url(); ?>progress/course">Courses</a></li>
+
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Certification</span>  <!-- <span class="pull-right label label-primary">SPECIAL</span> --></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="contacts.html">Completion cirt</a></li>
-                            <li><a href="profile.html">Merit cert</a></li>
-                            
+                            <li><a href="<?php echo base_url(); ?>progress/certificate">Certificates</a></li>
+
+
                         </ul>
                     </li>
                     <li>
-                        <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Consultation</span> </a>
+                        <a href="<?php echo base_url(); ?>consult/consult"><i class="fa fa-flask"></i> <span class="nav-label">Consultation</span> </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>consult/questions"><i class="fa fa-flask"></i> <span class="nav-label">FAQs</span> </a>
                     </li>
                    <!--  <li>
+
                         <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="search_results.html">Search results</a></li>
@@ -427,7 +434,7 @@ else{
                     </div> -->
 
             </div>
-        <div class="row"><!-- 
+        <div class="row"><!--
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content">
                         <div class="row">
@@ -781,7 +788,7 @@ else{
                 Small chat
             </div>
 
-            <div class="content"><!-- 
+            <div class="content"><!--
 
                 <div class="left">
                     <div class="author-name">

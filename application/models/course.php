@@ -16,7 +16,7 @@ class Course extends CI_Model{
 		
 	}
 	function mycourses($studentid){
-      $this->db->select('courseregister.registration_id,course.coursename,courseregister.coursecode,course.coursetype');
+      $this->db->select('courseregister.registration_id,course.coursename,course.description,courseregister.coursecode,course.coursetype');
 		$this->db->from('courseregister');
 		$this->db->join('course','courseregister.coursecode=course.coursecode','left');
 		$this->db->where('courseregister.user_id',$studentid);
@@ -127,5 +127,33 @@ class Course extends CI_Model{
 			return false;
 		}
 	}
+	function alltopics($code){
+		$this->db->select('*');
+		$this->db->from('topic');
+		$this->db->where('coursecode',$code);
+		$this->db->order_by('topicnumber');
+		$resultquery=$this->db->get();
+		if($this->db->affected_rows()>0){
+			return $resultquery->result_array();
+		}
+		else{
+			return false;
+		}
+	}
+	function textcontent($code){
+		
+
+	    $this->db->select('*');
+		$this->db->from('text');
+		$this->db->where('topicid',$code);
+		$query1=$this->db->get();
+       if($this->db->affected_rows()>0){
+			return $query1->result_array();
+		}
+		else{
+			return false;
+		}
+         }
+     
 }
   ?>

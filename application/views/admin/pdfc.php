@@ -78,8 +78,8 @@ else{
                   <li class="active">
                       <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Notes</span><span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
-                          <li class="active"><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
-                          <li><a href="<?php echo base_url(); ?>courses/mypdf">PDF</a></li>
+                          <li><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
+                          <li class="active"><a href="<?php echo base_url(); ?>courses/mypdf">PDF</a></li>
                           <li><a href="<?php echo base_url(); ?>courses/audio">Audio</a></li>
                           <li><a href="<?php echo base_url(); ?>courses/video">Video</a></li>
 
@@ -356,7 +356,7 @@ else{
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a>Text</a>
+                            <a>PDF</a>
                         </li>
                         <li class="active">
                             <strong>Select course</strong>
@@ -368,58 +368,203 @@ else{
                 </div>
             </div>
 
-        <div class="wrapper wrapper-content  animated fadeInRight article">
-         <?php 
+        <div class="wrapper wrapper-content  animated fadeInRight">
+           
 
-                                       if($text){
-                                        $count=1;
-                                        foreach ($text as $row) {
-                                          ?>
-           <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div class="ibox">
+            <div class="row">
+            <?php
+                if($myall){
+                  foreach ($myall as $row ) {
+                    # code...
+                  
+                
+
+             ?>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5><?php echo $row['coursename']; ?></h5>
+                        </div>
                         <div class="ibox-content">
-                            <div class="pull-right">
-                              
-                                <button class="btn btn-white btn-xs" type="button">Print</button>
-                               
+                            <div class="spiner-example">
+                            <div><img src="" ></div>
+                                <div class=""><?php echo $row['description']; ?></div></br>
+                                
                             </div>
-                            <div class="text-center article-title">
-
-                                  
-                                          <?php 
-                                           echo $row['text'];
-                                           
-                                       
-                                       
-                                   ?>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                        
-                                        
-                                        <button class="btn btn-white btn-xs" type="button">page <?php echo $count; ?></button>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="small text-right">
-                                       
-                                       
-                                        
-                                    </div>
+                            <form name="myform" id="myform" action="<?php echo base_url() ?>courses/pdftopic" method="post">
+                                                 <input type="hidden" name="id" id="id" value="<?php echo $row['coursecode'] ?>" />
+                                                 <input type="submit" class="btn btn-primary " value="Study" />
+                                                 </form>
+                        </div>
+                    </div>
+                </div>
+                <?php }}?>
+               <!--  <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Double bounce</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                                <div class="sk-spinner sk-spinner-double-bounce">
+                                    <div class="sk-double-bounce1"></div>
+                                    <div class="sk-double-bounce2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                   
-            <?php 
-            $count++;
-          }
-            
-            } ?>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Wave</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                                <div class="sk-spinner sk-spinner-wave">
+                                    <div class="sk-rect1"></div>
+                                    <div class="sk-rect2"></div>
+                                    <div class="sk-rect3"></div>
+                                    <div class="sk-rect4"></div>
+                                    <div class="sk-rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Wandering cubes</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                            <div class="sk-spinner sk-spinner-wandering-cubes">
+                                <div class="sk-cube1"></div>
+                                <div class="sk-cube2"></div>
+                            </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Pulse</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                            <div class="sk-spinner sk-spinner-pulse"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Chasing dots</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                            <div class="sk-spinner sk-spinner-chasing-dots">
+                                <div class="sk-dot1"></div>
+                                <div class="sk-dot2"></div>
+                            </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Three bounce</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                                <div class="sk-spinner sk-spinner-three-bounce">
+                                    <div class="sk-bounce1"></div>
+                                    <div class="sk-bounce2"></div>
+                                    <div class="sk-bounce3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Circle</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                                <div class="sk-spinner sk-spinner-circle">
+                                    <div class="sk-circle1 sk-circle"></div>
+                                    <div class="sk-circle2 sk-circle"></div>
+                                    <div class="sk-circle3 sk-circle"></div>
+                                    <div class="sk-circle4 sk-circle"></div>
+                                    <div class="sk-circle5 sk-circle"></div>
+                                    <div class="sk-circle6 sk-circle"></div>
+                                    <div class="sk-circle7 sk-circle"></div>
+                                    <div class="sk-circle8 sk-circle"></div>
+                                    <div class="sk-circle9 sk-circle"></div>
+                                    <div class="sk-circle10 sk-circle"></div>
+                                    <div class="sk-circle11 sk-circle"></div>
+                                    <div class="sk-circle12 sk-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Cube grid</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                                <div class="sk-spinner sk-spinner-cube-grid">
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Fading circle</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="spiner-example">
+                                <div class="sk-spinner sk-spinner-fading-circle">
+                                    <div class="sk-circle1 sk-circle"></div>
+                                    <div class="sk-circle2 sk-circle"></div>
+                                    <div class="sk-circle3 sk-circle"></div>
+                                    <div class="sk-circle4 sk-circle"></div>
+                                    <div class="sk-circle5 sk-circle"></div>
+                                    <div class="sk-circle6 sk-circle"></div>
+                                    <div class="sk-circle7 sk-circle"></div>
+                                    <div class="sk-circle8 sk-circle"></div>
+                                    <div class="sk-circle9 sk-circle"></div>
+                                    <div class="sk-circle10 sk-circle"></div>
+                                    <div class="sk-circle11 sk-circle"></div>
+                                    <div class="sk-circle12 sk-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ -->
 
+            </div>
         </div>
         <div class="footer">
             <div class="pull-right">
@@ -443,7 +588,7 @@ else{
 
     <!-- Custom and plugin javascript -->
     <script src="<?php echo base_url(); ?>tempcss/js/inspinia.js"></script>
-    <script src="<?php //echo base_url(); ?>tempcss/js/plugins/pace/pace.min.js"></script>
+    <script src="<?php echo base_url(); ?>tempcss/js/plugins/pace/pace.min.js"></script>
 
 </body>
 
