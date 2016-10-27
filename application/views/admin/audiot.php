@@ -386,8 +386,9 @@ else{
                             <h5><?php echo $row['topicname']; ?></h5>
                         </div>
                         <div class="ibox-content">
-                            <div class="spiner-example">
-                            <div><img src="" ></div>
+                         <div align="center"><img width="80" height="80" src="<?php echo base_url() ?>assets/img/headphone.png" ></div>
+                            <div class="">
+                            
                                 <div class=""><?php echo $row['topicdesc']; ?></div></br>
                                 
                             </div>

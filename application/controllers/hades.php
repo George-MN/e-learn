@@ -15,7 +15,7 @@ class Hades extends CI_Controller{
 				$this->load->view('admin/index',$useremail);
 			}
 			else if($usertype==2){
-				$this->load->view('content',$useremail);
+				$this->load->view('admin/content',$useremail);
 			}
 			else if($usertype==3){
 				$this->load->view('homepage',$useremail);

@@ -105,27 +105,28 @@ class Courses extends CI_controller{
 		$this->load->view('admin/videoc',$data);
 	}
 	function texttopic(){
-		$code= $this->input->post("course");
+		$code= $this->input->post("id");
 		$data['topics']= $this->course->alltopics($code);
 		$this->load->view('admin/textt',$data);
 
 }
 function videotopic(){
-		$code= $this->input->post("course");
+		$code= $this->input->post("id");
 		$data['topics']= $this->course->alltopics($code);
 		$this->load->view('admin/videot',$data);
 
 }
 function pdftopic(){
-		$code= $this->input->post("course");
+		$code= $this->input->post("id");
 		$data['topics']= $this->course->alltopics($code);
 		$this->load->view('admin/pdft',$data);
 
 }
 function audiotopic(){
-		$code= $this->input->post("course");
-		$data['topics']= $this->course->alltopics($code);
-		$this->load->view('admin/audiot',$data);
+		$code= $this->input->post("id");
+		
+		 $data['topics']= $this->course->alltopics($code);
+		 $this->load->view('admin/audiot',$data);
 
 }
 function studyvideo(){

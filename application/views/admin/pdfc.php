@@ -386,9 +386,10 @@ else{
                             <h5><?php echo $row['coursename']; ?></h5>
                         </div>
                         <div class="ibox-content">
-                            <div class="spiner-example">
-                            <div><img src="" ></div>
-                                <div class=""><?php echo $row['description']; ?></div></br>
+                         <div align="center"><img width="80" height="80" src="<?php echo base_url() ?>assets/img/pdf.png" ></div>
+                            <div class="">
+                           
+                                <div class=""></br><?php echo $row['description']; ?></div></br>
                                 
                             </div>
                             <form name="myform" id="myform" action="<?php echo base_url() ?>courses/pdftopic" method="post">
