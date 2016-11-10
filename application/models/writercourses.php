@@ -57,11 +57,59 @@ class Writercourses extends CI_Model{
 		$this->db->where('topicid',$id);
 		$query=$this->db->get();
 
-		return $query->result_array();
-
-
+		return $query;
 
 	}
+	function topicname($code){
+		$this->db->select('topicname');
+		$this->db->from('topic');
+		$this->db->where('topicid',$code);
+		$query=$this->db->get();
+		$row=$query->row();
+		$topicname=$row->topicname;
+		return $topicname;
+	}
+	function uploadtext($myvalues){
+        $this->db->insert('text',$myvalues);
+	}
+	function alltopics(){
+		$code=$this->session->userdata['logged_in']['username'];
+
+		$this->db->select('topic.topicname,topic.topicid,course.coursecode');
+		$this->db->from('topic');
+		$this->db->join('course','course.coursecode=topic.coursecode','inner');
+		$this->db->where('topic.topicauthor',$code);
+		$this->db->order_by('coursecode');
+		$query=$this->db->get();
+		if($this->db->affected_rows()>0){
+			return $query->result_array();
+		}
+		else{
+			return false;
+		}
+	}
+	function uploadassignment($myvalues){
+		$this->db->insert('assignment',$myvalues);
+
+	}
+	function updateassignment($text,$id){
+
+      $this->db->set('assignment',$text);
+		$this->db->where('assignmentid',$id);
+		$this->db->update('assignment');
+	}
+	function getassignmentid($topicid){
+        $this->db->select('*');
+        $this->db->from('assignment');
+        $this->db->where('topicid',$topicid);
+        $this->db->order_by('assignmentid','desc');
+        $this->db->limit(1);
+        $query=$this->db->get();
+        // $row=$query->row();
+        // $assignmentid=$row->assignmentid;
+        return $query->result_array();
+	}
+
 	
 }
 

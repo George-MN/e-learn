@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | File Upload</title>
+    <title>Health Elearning | File Upload</title>
 
     <link href="<?php echo base_url(); ?>tempcss/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>tempcss/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -14,6 +14,8 @@
     <link href="<?php echo base_url(); ?>tempcss/css/plugins/dropzone/basic.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>tempcss/css/plugins/dropzone/dropzone.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>tempcss/css/style.css" rel="stylesheet">
+     <script src="<?php echo base_url(); ?>tempcss/js/plugins/dropzone/dropzone.js"></script>
+
 
 </head>
 
@@ -232,11 +234,11 @@ else{
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to HEALTH E-learning.</span>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                        <i class="fa fa-envelope"></i>  <!-- <span class="label label-warning">16</span> -->
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -289,7 +291,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        <i class="fa fa-bell"></i>  <!-- <span class="label label-primary">8</span> -->
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -339,19 +341,23 @@ else{
             </ul>
 
         </nav>
+        <?php
+                         $row=$topic->row();
+                          
+                    ?>
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>File upload</h2>
+                    <h2>Video upload</h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.html">Video</a>
                         </li>
                         <li>
-                            <a>Forms</a>
+                            <a><?php echo $row->topicname; ?></a>
                         </li>
                         <li class="active">
-                            <strong>File upload</strong>
+                            <strong>video upload</strong>
                         </li>
                     </ol>
                 </div>
@@ -364,7 +370,7 @@ else{
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Dropzone Area</h5>
+                        <h5>Upload video</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -383,10 +389,13 @@ else{
                             </a>
                         </div>
                     </div>
+                    
                     <div class="ibox-content">
-                        <form id="my-awesome-dropzone" class="dropzone" action="#">
+                        <form class="dropzone" action="<?php echo base_url(); ?>content/uploadvid" >
+                        
                             <div class="dropzone-previews"></div>
-                            <button type="submit" class="btn btn-primary pull-right">Submit this form!</button>
+                            <input type=text id="mytopicid" class="hidden" value="<?php echo $code; ?>">
+                            <button type="submit"  class="btn btn-primary pull-right">Submit this form!</button>
                         </form>
                         
                     </div>
@@ -420,39 +429,39 @@ else{
     <script src="<?php echo base_url(); ?>tempcss/js/plugins/pace/pace.min.js"></script>
 
     <!-- DROPZONE -->
-    <script src="<?php echo base_url(); ?>tempcss/js/plugins/dropzone/dropzone.js"></script>
-
+   
 
     <script>
-        $(document).ready(function(){
+       //  $(document).ready(function(){
 
-            Dropzone.options.myAwesomeDropzone = {
+       //      Dropzone.options.myAwesomeDropzone = {
 
-                autoProcessQueue: false,
-                uploadMultiple: true,
-                parallelUploads: 100,
-                maxFiles: 100,
+       //          autoProcessQueue: false,
+       //          uploadMultiple: true,
+       //          parallelUploads: 100,
+       //          maxFiles: 100,
 
-                // Dropzone settings
-                init: function() {
-                    var myDropzone = this;
+       //          // Dropzone settings
+       //          init: function() {
+       //              var myDropzone = this;
 
-                    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        myDropzone.processQueue();
-                    });
-                    this.on("sendingmultiple", function() {
-                    });
-                    this.on("successmultiple", function(files, response) {
-                    });
-                    this.on("errormultiple", function(files, response) {
-                    });
-                }
+       //              this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+       //                  e.preventDefault();
+       //                  e.stopPropagation();
+       //                  myDropzone.processQueue();
+       //              });
+       //              this.on("sending", function(file, xhr, formData) {
+       //                  formData.append('topic', $('#mytopicid').val())
+       //              });
+       //              this.on("successmultiple", function(files, response) {
+       //              });
+       //              this.on("errormultiple", function(files, response) {
+       //              });
+       //          }
 
-            }
+       //      }
 
-       });
+       // });
     </script>
 
 </body>

@@ -401,16 +401,16 @@ else{
                                             <tr>
                                              <td><?php echo $r['topicname']; ?></td>
                                              <td>
-                                                 <a href="<?php echo base_url() ?>content/topicaddvideo?id=/<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-film"></i></button></a>
+                                                 <a href="<?php echo base_url() ?>content/topicaddvideo?id=<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-film"></i></button></a>
                                              </td>
                                              <td>
-                                                 <a href="<?php echo base_url() ?>content/topicaddtext/<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-file-text"></i></button></a>
+                                                 <a href="<?php echo base_url() ?>content/topicaddtext?id=<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-file-text"></i></button></a>
                                              </td>
                                              <td>
-                                                  <a href="<?php echo base_url() ?>content/topicaddpdf/<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-print"></i></button></a>
+                                                  <a href="<?php echo base_url() ?>content/topicaddpdf?id=<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-print"></i></button></a>
                                              </td>
                                              <td>
-                                             <a href="<?php echo base_url() ?>content/topicaddaudio/<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa fa-bullhorn"></i></button></a>
+                                             <a href="<?php echo base_url() ?>content/topicaddaudio?id=<?php echo $r['topicid'];?>"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa fa-bullhorn"></i></button></a>
                                                  </td>
                                                  <td>
                                                 
