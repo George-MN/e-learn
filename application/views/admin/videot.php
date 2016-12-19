@@ -37,8 +37,7 @@ else{
 ?>
 
     <div id="wrapper">
-
-      <nav class="navbar-default navbar-static-side" role="navigation">
+ <nav class="navbar-default navbar-static-side" role="navigation">
           <div class="sidebar-collapse">
               <ul class="nav" id="side-menu">
                   <li class="nav-header">
@@ -78,7 +77,7 @@ else{
                   <li class="active">
                       <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Notes</span><span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
-                          <li><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
+                          <li ><a href="<?php echo base_url(); ?>courses/content">Text</a></li>
                           <li><a href="<?php echo base_url(); ?>courses/mypdf">PDF</a></li>
                           <li><a href="<?php echo base_url(); ?>courses/audio">Audio</a></li>
                           <li class="active"><a href="<?php echo base_url(); ?>courses/video">Video</a></li>

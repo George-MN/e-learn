@@ -131,6 +131,7 @@ class Course extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('topic');
 		$this->db->where('coursecode',$code);
+		$this->db->where('status',1);
 		$this->db->order_by('topicnumber');
 		$resultquery=$this->db->get();
 		if($this->db->affected_rows()>0){
@@ -154,6 +155,79 @@ class Course extends CI_Model{
 			return false;
 		}
          }
+    function myaudios($code){
+    	$this->db->select('*');
+		$this->db->from('audio');
+		$this->db->where('topicid',$code);
+		$query1=$this->db->get();
+       if($this->db->affected_rows()>0){
+			return $query1->result_array();
+		}
+		else{
+			return false;
+		}
+    }
+    function getallassignments(){
+        $myid=$this->session->userdata['logged_in']['userid'];
+    	$this->db->select('*');
+    	$this->db->from('myassignment');
+    	$this->db->where('user_id',$myid);
+    	$query=$this->db->get();
+    	return $query->result_array();
+		
+    }
+    function assignmentdetails($assid){
+
+    	$this->db->select('*');
+    	$this->db->from('assignment');
+    	$this->db->where('assignment.assignmentid',$assid);
+
+    	$myquery1=$this->db->get();
+    	return $myquery1->result_array();
+    }
+
+    function uploadsubassignment($textinput){
+    	$this->db->insert('assignmentsub',$textinput);
+    }
+     function getsubassignmentid($id,$userid){
+     	$this->db->select('*');
+		$this->db->from('assignmentsub');
+		$this->db->where('assignmentid',$id);
+		$this->db->where('userid',$userid);
+		$this->db->order_by('assignmentsubid','desc');
+		 $this->db->limit(1);
+		$query=$this->db->get();
+		
+			return $query->result_array();
+
      
+ }
+     function updatesubassignment($text,$assignid){
+     	 $this->db->set('assignmentsub',$text);
+		$this->db->where('assignmentsubid',$assignid);
+		$this->db->update('assignmentsub');
+     }
+     function checkthisassign($assid){
+     	$myid=$this->session->userdata['logged_in']['userid'];
+     	$this->db->select('*');
+    	$this->db->from('assignmentsub');
+    	$this->db->where('userid',$myid);
+    	$this->db->where('assignmentid',$assid);
+    	$number=$this->db->affected_rows();
+    	return $number;
+
+
+     }
+     function allsubmittedass(){
+     	$myid=$this->session->userdata['logged_in']['userid'];
+     	$this->db->select('*');
+    	$this->db->from('assignmentsub');
+    	$this->db->join('assignment','assignmentsub.assignmentid=assignment.assignmentid');
+    	$this->db->where('assignmentsub.userid',$myid);
+    	$myquery=$this->db->get();
+    	return $myquery->result_array();
+
+     }
 }
+
   ?>

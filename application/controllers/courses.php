@@ -151,6 +151,66 @@ function studyvideo(){
       $this->load->view('admin/article',$data);
  // }
 	}
+	function study(){
+		$code=$this->input->post('myid');
+		$data['audio']=$this->course->myaudios($code);
+		$this->load->view('admin/audios',$data);
+
+	}
+	function assignment(){
+		$data['dueass']=$this->course->getallassignments();
+		$this->load->view('admin/dueass',$data);
+		
+	}
+	function assignmentdetails(){
+		$assid=$this->input->post('id');
+
+		//$determine=$this->course->checkthisassign($assid);
+
+		
+
+		$data['assignment']=$this->course->assignmentdetails($assid);
+		$this->load->view('admin/assignmentview',$data);
+	    
+	 //    else{
+	 //    	$this->load->view('admin/assignmentisdone');
+	 //    }
+
+	}
+	function assignmentsubmit(){
+		$assignid=$this->input->post('id');
+		$data['code']=$assignid;
+		$this->load->view('admin/submitassignment',$data);
+	}
+	function uploadsubassignment(){
+		$text=$this->input->post('aHTML');
+		$id=$this->input->post('id');
+		$assignid=$this->input->post('assid');
+		$userid=$this->session->userdata['logged_in']['userid'];
+		$date=date('Y-m-d');
+
+		if($assignid){
+          $this->course->updatesubassignment($text,$assignid);
+          $upassid=$this->course->getsubassignmentid($id,$userid);
+          echo json_encode($upassid);
+		}
+		else{
+			$textinput = array('assignmentid' => $id,
+		                   'assignmentsub' => $text,
+		                   'date' =>$date,
+		                   'userid' => $userid,
+		                   'status' => 1,
+		                   'date' => $date);
+		$this->course->uploadsubassignment($textinput);
+		$upassid=$this->course->getsubassignmentid($id,$userid);
+		echo json_encode($upassid);
+
+		}
+	}
+	function  assignsubmentdetails(){
+		$data['allass']=$this->course->allsubmittedass();
+		$this->load->view('admin/prevsubassignment',$data);
+	}
 
 
 

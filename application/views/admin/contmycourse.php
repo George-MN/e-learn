@@ -92,7 +92,7 @@ else{
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Quiz</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url(); ?>content/create_quiz">Create</a></li>
-                            <li><a href="<?php echo base_url(); ?>content/view_quiz">Submitted</a></li>
+                            <li><a href="<?php echo base_url(); ?>content/view_quiz">View available quizes</a></li>
                 
 
                         </ul>

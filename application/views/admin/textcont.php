@@ -76,7 +76,7 @@ else{
                     <li class="active">
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">View</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="<?php echo base_url(); ?>contenttext/content">Text</a></li>
+                            <li class="active"><a href="<?php echo base_url(); ?>content/contenttext">Text</a></li>
                             <li><a href="<?php echo base_url(); ?>content/mypdf">PDF</a></li>
                             <li><a href="<?php echo base_url(); ?>content/audio">Audio</a></li>
                             <li><a href="<?php echo base_url(); ?>content/video">Video</a></li>

@@ -109,6 +109,128 @@ class Writercourses extends CI_Model{
         // $assignmentid=$row->assignmentid;
         return $query->result_array();
 	}
+	function faqs(){
+		$code=$this->session->userdata['logged_in']['username'];
+		$this->db->select('*');
+		$this->db->from('faqs');
+		$myquery=$this->db->get();
+
+		return $myquery->result_array();
+
+	}
+	function addfaqs($faqd){
+		$this->db->insert('faqs',$faqd);
+	}
+	function uploadvid($videodetails){
+		$this->db->insert('video',$videodetails);
+	}
+	function uploadpdf($pdfdetails){
+		$this->db->insert('pdf',$pdfdetails);
+	}
+	function uploadaudio($audiodetails){
+		$this->db->insert('audio',$audiodetails);
+	}
+	function View_assignment(){
+		$userid=$this->session->userdata['logged_in']['username'];
+		$this->db->select('*');
+        $this->db->from('assignment');
+        $this->db->join('topic','assignment.topicid=topic.topicid');
+        $this->db->where('userid',$userid);
+        $this->db->order_by('assignmentid','desc');
+        $query=$this->db->get();
+        // $row=$query->row();
+        // $assignmentid=$row->assignmentid;
+        return $query->result_array();
+	}
+	function allassignment($code){
+		$this->db->select('*');
+        $this->db->from('assignmentsub');
+        $this->db->join('users','assignmentsub.userid=users.user_id');
+        $this->db->where('assignmentid',$code);
+        $this->db->order_by('assignmentsubid','desc');
+        $query=$this->db->get();
+        // $row=$query->row();
+        // $assignmentid=$row->assignmentid;
+        return $query->result_array();
+
+	}
+	function quiz_details_insert($inputs,$topicid){
+		$this->db->insert('quiz',$inputs);
+
+		$this->db->select('quizid');
+		$this->db->from('quiz');
+		$this->db->where('topicid',$topicid);
+		$this->db->order_by('quizid','desc');
+		$this->db->limit(1);
+		$query=$this->db->get();
+		$row=$query->row();
+		$quizid=$row->quizid;
+		return $quizid;
+
+	}
+	function question_insert($quiz_question,$quizid){
+		$this->db->insert('quiz_questions',$quiz_question);
+
+	}
+	function getmaxquestion($quizid){
+		$this->db->select('num_questions');
+		$this->db->from('quiz');
+		$this->db->where('quizid',$quizid);
+		$this->db->order_by('num_questions','desc');
+		$this->db->limit(1);
+		$query=$this->db->get();
+		$row = $query->row();
+		$maxque =$row->num_questions;
+		return $maxque;
+
+	}
+	function getquizname($quizid){
+		$this->db->select('quizname');
+		$this->db->from('quiz');
+		$this->db->where('quizid',$quizid);
+		$query=$this->db->get();
+		$row = $query->row();
+		$quizname =$row->quizname;
+		return $quizname;
+	}
+	function getquizquestions($viewid){
+		$this->db->select('*');
+		$this->db->from('quiz_questions');
+		$this->db->where('quiz_id',$viewid);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+	function getallquiz(){
+	$userid= $this->session->userdata['logged_in']['userid'];
+	$this->db->SELECT('*')  ;
+	$this->db->from('topic'); 
+    $this->db->JOIN('quiz','topic.topicid=quiz.topicid');  
+    $this->db->JOIN('courseregister','topic.coursecode=courseregister.coursecode');
+    $this->db->WHERE('courseregister.user_id',$userid);
+    $query=$this->db->get();
+    return $query->result_array();
+	}
+	function quizreport($report){
+		$this->db->select('*');
+		$this->db->from('quizscore');
+		$this->db->join('quiz','quizscore.quizid=quiz.quizid');
+		$this->db->join('users','quizscore.user_id=users.user_id');
+		$this->db->where('quizscore.quizid',$report);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+	function getusersenrolled($code){
+		$this->db->select('*');
+		$this->db->from('courseregister');
+		$this->db->join('users','courseregister.user_id=users.user_id');
+		$this->db->where('coursecode',$code);
+		$this->db->where('usertype',1);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+
+
+ 
 
 	
 }

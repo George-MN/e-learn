@@ -392,8 +392,8 @@ else{
                                 <div class=""><?php echo $row['topicdesc']; ?></div></br>
                                 
                             </div>
-                            <form name="myform" id="myform" action="<?php echo base_url() ?>courses/study" method="post">
-                                                 <input type="hidden" name="id" id="id" value="<?php echo $row['topicid'] ?>" />
+                            <form name="myform" id="myform" method="post" action="<?php echo base_url() ?>courses/study" >
+                                                 <input type="hidden" name="myid" id="id" value="<?php echo $row['topicid'] ?>" />
                                                  <input type="submit" class="btn btn-primary " value="Study" />
                                                  </form>
                         </div>

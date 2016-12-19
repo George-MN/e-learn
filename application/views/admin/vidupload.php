@@ -90,7 +90,7 @@ else{
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Quiz</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url(); ?>content/create_quiz">Create</a></li>
-                            <li><a href="<?php echo base_url(); ?>content/view_quiz">Submitted</a></li>
+                            <li><a href="<?php echo base_url(); ?>content/view_quiz">View available quizes</a></li>
                 
 
                         </ul>
@@ -391,11 +391,11 @@ else{
                     </div>
                     
                     <div class="ibox-content">
-                        <form class="dropzone" action="<?php echo base_url(); ?>content/uploadvid" >
+                        <form class="dropzone" action="<?php echo base_url(); ?>content/uploadvid?myid=<?php echo $code; ?>" >
                         
                             <div class="dropzone-previews"></div>
                             <input type=text id="mytopicid" class="hidden" value="<?php echo $code; ?>">
-                            <button type="submit"  class="btn btn-primary pull-right">Submit this form!</button>
+                            <!-- <button type="submit"  class="btn btn-primary pull-right">Submit this form!</button> -->
                         </form>
                         
                     </div>
@@ -432,36 +432,36 @@ else{
    
 
     <script>
-       //  $(document).ready(function(){
+        $(document).ready(function(){
 
-       //      Dropzone.options.myAwesomeDropzone = {
+            Dropzone.options.myAwesomeDropzone = {
 
-       //          autoProcessQueue: false,
-       //          uploadMultiple: true,
-       //          parallelUploads: 100,
-       //          maxFiles: 100,
+                autoProcessQueue: false,
+                uploadMultiple: true,
+                parallelUploads: 100,
+                maxFiles: 100,
 
-       //          // Dropzone settings
-       //          init: function() {
-       //              var myDropzone = this;
+                // Dropzone settings
+                init: function() {
+                    var myDropzone = this;
 
-       //              this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-       //                  e.preventDefault();
-       //                  e.stopPropagation();
-       //                  myDropzone.processQueue();
-       //              });
-       //              this.on("sending", function(file, xhr, formData) {
-       //                  formData.append('topic', $('#mytopicid').val())
-       //              });
-       //              this.on("successmultiple", function(files, response) {
-       //              });
-       //              this.on("errormultiple", function(files, response) {
-       //              });
-       //          }
+                    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        myDropzone.processQueue();
+                    });
+                    this.on("sending", function(file, xhr, formData) {
+                        formData.append('topic', $('#mytopicid').val())
+                    });
+                    this.on("successmultiple", function(files, response) {
+                    });
+                    this.on("errormultiple", function(files, response) {
+                    });
+                }
 
-       //      }
+            }
 
-       // });
+       });
     </script>
 
 </body>

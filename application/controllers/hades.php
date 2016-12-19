@@ -4,6 +4,7 @@ class Hades extends CI_Controller{
 	function __construct(){
 		parent:: __construct();
 		$this->load->helper('url');
+		$this->load->model('course');
 	}
 	function index(){
 		if($this->session->userdata('logged_in')){
@@ -18,7 +19,8 @@ class Hades extends CI_Controller{
 				$this->load->view('admin/content',$useremail);
 			}
 			else if($usertype==3){
-				$this->load->view('homepage',$useremail);
+				$data['mycourses']=$this->course->allcourses();
+				$this->load->view('admin/contentmanagement',$data);
 			}
 			else{
 				$data='it seems your account has a problem. please contact the system admin';

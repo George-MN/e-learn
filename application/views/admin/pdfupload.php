@@ -68,7 +68,7 @@ else{
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">View</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="<?php echo base_url(); ?>content/content">Text</a></li>
+                            <li><a href="<?php echo base_url(); ?>content/contenttext">Text</a></li>
                             <li><a href="<?php echo base_url(); ?>content/mypdf">PDF</a></li>
                             <li><a href="<?php echo base_url(); ?>content/audio">Audio</a></li>
                             <li><a href="<?php echo base_url(); ?>content/video">Video</a></li>
@@ -88,7 +88,7 @@ else{
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Quiz</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url(); ?>content/create_quiz">Create</a></li>
-                            <li><a href="<?php echo base_url(); ?>content/view_quiz">Submitted</a></li>
+                            <li><a href="<?php echo base_url(); ?>content/view_quiz">View available quizes</a></li>
                 
 
                         </ul>
@@ -389,11 +389,11 @@ else{
                     </div>
                     
                     <div class="ibox-content">
-                        <form class="dropzone" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>content/uploadvid">
+                        <form class="dropzone" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>content/uploadpdf?myid=<?php echo $code; ?>">
                         
                            
                             <input type=text name="mytopicid" class="hidden" value="<?php echo $code; ?>">
-                            <button type="submit" class="btn btn-primary pull-right">Submit this form!</button>
+                            
                         </form>
                         
                     </div>
