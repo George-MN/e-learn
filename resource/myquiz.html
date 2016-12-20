@@ -418,7 +418,7 @@
                      $('#myquesid').val(responseObj['question_id']);
                      $('#myquest').html(responseObj['question_number'])
                       $('#quizid').val(responseObj['quiz_id']);
-                   var but='<button type="button" onclick="submit();" class="btn btn-outline btn-success">Download</button>';
+                   var but='<button type="button" onclick="submit();" class="btn btn-outline btn-success">Next Question</button>';
                     $('#thequiz').append(but);
 
 
@@ -549,12 +549,12 @@
          var myget=first.split("=");
          var id=myget[1];
          var ques=$('#myques').val();
-         alert($('#myques').val());
+         //alert($('#myques').val());
          var queid=$('#myquesid').val();
 
-          alert(queid);
+         // alert(queid);
          var answer= document.querySelector('input[name="ans"]:checked').value;
-         alert(answer);
+         //alert(answer);
           //$('#myid').val();
          // if(!ques){
          //  ques=0;
@@ -601,7 +601,7 @@
                      $('#myquesid').val(responseObj['question_id']);
                      $('#myquest').html(responseObj['question_number'])
                       $('#quizid').val(responseObj['quiz_id']);
-                   var but='<button type="button" onclick="submit();" class="btn btn-outline btn-success">Download</button>';
+                   var but='<button type="button" onclick="submit();" class="btn btn-outline btn-success">Next question</button>';
                     $('#thequiz').append(but);
 
 
@@ -634,6 +634,13 @@
                     // $('#category').val(responseObj[0]['coursetype']);
 
                 });
+requestid.fail(function(jHQR, message, errorThrown)
+    {
+
+          var respo=JSON.stringify(jHQR)+"Server error";
+          $('#thequiz').html(respo);
+
+    });
 }
 
         </script>

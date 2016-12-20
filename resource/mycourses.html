@@ -422,6 +422,13 @@
                     // $('#category').val(responseObj[0]['coursetype']);
 
                 });
+         requestid.fail(function(jHQR, message, errorThrown)
+    {
+
+          var respo=JSON.stringify(jHQR)+"Server error";
+          $('#alert').html(respo);
+
+    });
      
     }
     else{
@@ -462,6 +469,13 @@
                     // $('#category').val(responseObj[0]['coursetype']);
 
                 });
+         requestid.fail(function(jHQR, message, errorThrown)
+    {
+
+          var respo=JSON.stringify(jHQR)+"Server error";
+          $('#datatable').html(respo);
+
+    });
 
         });
       </script>
@@ -494,6 +508,13 @@
                     // $('#category').val(responseObj[0]['coursetype']);
 
                 });
+        requestid.fail(function(jHQR, message, errorThrown)
+    {
+
+          var respo=JSON.stringify(jHQR)+"Server error";
+          $('#coursereg').html(respo);
+
+    });
 
         });
       </script>

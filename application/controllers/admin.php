@@ -10,6 +10,7 @@ class Admin extends CI_controller{
 
 	function courseedit(){
        $coursecode=$this->input->get('id');
+       $data['resp']="";
        $data['mycourse']=$this->serve->getcourse($coursecode);
 	   $this->load->view('admin/editcourse',$data);
 	}
@@ -64,6 +65,70 @@ class Admin extends CI_controller{
 		// echo $userid;
 		// echo $courseid;
 	}
+	function courseeditchoice(){
+		$coursename=$this->input->post('choice1');
+		$coursetype=$this->input->post('answer');
+		$coursecode=$this->input->post('choice3');
+		$coursedesc=$this->input->post('choice4');
+		$courseid=$this->input->post('coursecode');
+		$this->serve->updatecoursedet($coursename,$coursetype,$coursecode,$coursedesc,$courseid);
+		 //$coursecode=$this->input->get('id');
+       $data['resp']="Course updated successfully";
+       $data['mycourse']=$this->serve->getcourse($coursecode);
+	   $this->load->view('admin/editcourse',$data);
+	}
+	function coursedelete(){
+		$coursecode=$this->input->get('id');
+		$this->serve->coursedelete($coursecode);
+		$data['mycourses']=$this->course->allcourses();
+	   $this->load->view('admin/contentmanagement',$data);
+
+	}
+	function useredit(){
+		$userid=$this->input->get('id');
+		$data['resp']="";
+		$data['users']=$this->serve->useredit($userid);
+		$this->load->view('admin/edituser',$data);
+
+	}
+	function usereditchoice(){
+		$userid=$this->input->post('userid');
+		$usertype=$this->input->post('type');
+		if($usertype=='Admin'){
+			$type=3;
+		}
+		else if($usertype=='Content writer'){
+			$type=2;
+		}
+		else{
+			$type=1;
+		}
+		$this->serve->updateuser($userid,$type);
+		$data['resp']="User updated successfully";
+		$data['users']=$this->serve->useredit($userid);
+		$this->load->view('admin/edituser',$data);
+
+
+	}
+	function userdelete(){
+		$userid=$this->input->get('id');
+		$this->serve->userdelete($userid);
+		$data['users']=$this->serve->getusers();
+		$this->load->view('admin/privileges',$data);
+
+
+	}
+	function enrollment(){
+		$this->load->view('admin/enrollreport');
+	}
+	function userconratio(){
+		$this->load->view('admin/userconratio');
+	}
+	function quizperformance(){
+		$this->load->view('admin/quizaveragereport');
+	}
+
+	
 }
 
 ?>

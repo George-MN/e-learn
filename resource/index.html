@@ -23,7 +23,7 @@
             <header class="codrops-header">
                 <h1>Welcome to the health E-learning portal</h1>
                 <p>get information about health anytime anywhere</p>
-                <span class="logerror"><?php echo validation_errors();  ?></span>
+                <span class="logerror" id="logerror"></span>
             </header>
             <section>
 
@@ -118,13 +118,15 @@ if($.trim(email).length>0 & $.trim(password).length>0)
 
         }
         else{
-            alert('Wrong username or password');
+           alert('Wrong username or password');
+            $('#logerror').html(respo);
         }
     });
     serverRequest.fail(function(jHQR, message, errorThrown)
     {
 
-alert(JSON.stringify(jHQR)+"Server error");
+var respo=JSON.stringify(jHQR)+"Server error";
+$('#logerror').html(respo);
 
     });
 

@@ -66,20 +66,20 @@ else{
                     </li>
                    
                     
-                    <li class="active">
+                    <li >
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label"> Courses</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="<?php echo base_url(); ?>admin/allcourse">Manage Courses</a></li>
+                            <li ><a href="<?php echo base_url(); ?>admin/allcourse">Manage Courses</a></li>
                             <li><a href="<?php echo base_url(); ?>admin/createcourse">Create course</a></li>
                            
 
                         </ul>
                     </li>
-                     <li>
+                     <li class="active">
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Manage users</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url(); ?>admin/create_user">Allocate course</a></li>
-                            <li><a href="<?php echo base_url(); ?>admin/privileges">User priviledges</a></li>
+                            <li class="active"><a href="<?php echo base_url(); ?>admin/privileges">User priviledges</a></li>
                             
 
                         </ul>
@@ -451,43 +451,46 @@ else{
                             echo '</div>';
                            }
                         ?>
-                            <form method="post" class="form-horizontal" action="<?php echo base_url() ?>admin/courseeditchoice">
-                                  <?php if($mycourse){
-                                    foreach ($mycourse as $r) {
+                            <form method="post" class="form-horizontal" action="<?php echo base_url() ?>admin/usereditchoice">
+                                  <?php if($users){
+                                    foreach ($users as $r) {
                                         # code...
                                     }
                                     }?>
                                 
                                 
-                                <div class="form-group"><label class="col-sm-2 control-label" >Course name</label>
-                                    <div class="col-sm-10"><input type="text" class="form-control" name="choice1" id="choice1" value="<?php echo $r['coursename'];?>" required="required" > 
+                                <div class="form-group"><label class="col-sm-2 control-label" >User name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" name="choice1" id="choice1" value="<?php echo $r['username'];?>" required="required" disabled="disabled"> 
                                     </div> 
                                 </div>
                                 <div class="hr-line-dashed"></div>
-                                <div class="form-group"><label class="col-lg-2 control-label">Course category</label>
+                                <div class="form-group"><label class="col-lg-2 control-label">User category</label>
 
-                                    <div class="col-lg-10"><select class="form-control" placeholder="<?php echo $r['coursetype'];?>" id="answer" name="answer"  required="required">
-                                    <option > <?php echo $r['coursetype'];?></option> 
-                                    <option>medicine</option>
-                                    <option>Pharmacy</option>
-                                    <option>Nursing</option>
+                                    <div class="col-lg-10"><select class="form-control"  id="answer" name="type"  required="required">
+                                    <option > <?php if($r['usertype']==1){
+                                        echo "Learner";
+                                        }else if($r['usertype']==2){
+                                            echo "Content writer";
+                                        }
+                                        else if($r['usertype']==3){
+                                            echo "Admin";
+                                        }
+                                        ?></option> 
+                                    <option>Learner</option>
+                                    <option>Content writer</option>
+                                    <option>Admin</option>
 
                                     </select>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
-                                <div class="form-group"><label class="col-sm-2 control-label">course code</label>
+                                <div class="form-group"><label class="col-sm-2 control-label">useremail</label>
 
-                                    <div class="col-sm-10"><input type="text" placeholder="" id="choice3" name="choice3" class="form-control" value="<?php echo $r['coursecode'];?>" required="required" ></div>
+                                    <div class="col-sm-10"><input type="text" placeholder="" id="choice3" name="choice3" class="form-control" value="<?php echo $r['email'];?>" required="required" disabled="disabled"></div>
                                 </div>
-                                <div class="hr-line-dashed"></div>
-                                <div class="form-group"><label class="col-lg-2 control-label">Course description</label>
-
-                                    <div class="col-lg-10"><input type="text" name="choice4" id="choice4" value="<?php echo $r['description'];?>" required="required" placeholder="" class="form-control" ></div>
-                                </div> 
-                                <div class="hr-line-dashed"></div>
+                                
                                
-                                <input type="hidden" placeholder="" id="choice3" name="coursecode"  value="<?php echo $r['coursecode'];?>"class="form-control">
+                                <input type="hidden" placeholder="" id="choice3" name="userid"  value="<?php echo $r['user_id'];?>"class="form-control">
                                 <input type="hidden" placeholder="" id="choice3" name="questionnum"  class="form-control">
                                 <div class="hr-line-dashed"></div>
                                 <div class="col-sm-10"><input type="submit" class="btn btn-primary" value="Submit"></div>
