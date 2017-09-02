@@ -13,10 +13,13 @@ class Hades extends CI_Controller{
 			$usertype=$session_data['usertype'];
 			//$this->load->view('content',$useremail);
 			if($usertype==1){
-				$this->load->view('admin/index',$useremail);
+				redirect('courses/allcourses','refresh');
+				//$this->load->view('admin/index',$useremail);
 			}
 			else if($usertype==2){
-				$this->load->view('admin/content',$useremail);
+				redirect('content/mycourses','refresh');
+				//$this->load->controller('content/mycourses');
+				//$this->load->view('admin/content',$useremail);
 			}
 			else if($usertype==3){
 				$data['mycourses']=$this->course->allcourses();

@@ -129,6 +129,11 @@ function audiotopic(){
 		 $this->load->view('admin/audiot',$data);
 
 }
+function pdfstudy(){
+	$code=$this->input->post('myid');
+		$data['pdfs']=$this->course->mypdfs($code);
+		$this->load->view('admin/mypdfs',$data);
+}
 function studyvideo(){
 
 		$code= $this->input->post("id");

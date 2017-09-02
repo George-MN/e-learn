@@ -105,17 +105,7 @@ else{
 
                       </ul>
                   </li>
-                  <li>
-                      <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Certification</span>  <!-- <span class="pull-right label label-primary">SPECIAL</span> --></a>
-                      <ul class="nav nav-second-level">
-                          <li><a href="<?php echo base_url(); ?>progress/certificate">Certificates</a></li>
-
-
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="<?php echo base_url(); ?>consult/consult"><i class="fa fa-flask"></i> <span class="nav-label">Consultation</span> </a>
-                  </li>
+                  
                   <li>
                       <a href="<?php echo base_url(); ?>consult/questions"><i class="fa fa-flask"></i> <span class="nav-label">FAQs</span> </a>
                   </li>
@@ -244,7 +234,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                        <i class="fa fa-envelope"></i>  <!-- <span class="label label-warning">16</span> -->
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -297,7 +287,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        <i class="fa fa-bell"></i>  <!-- <span class="label label-primary">8</span> -->
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -393,8 +383,8 @@ else{
                                 <div class=""><?php echo $row['topicdesc']; ?></div></br>
                                 
                             </div>
-                            <form name="myform" id="myform" action="<?php echo base_url() ?>courses/study" method="post">
-                                                 <input type="hidden" name="id" id="id" value="<?php echo $row['topicid'] ?>" />
+                            <form name="myform" id="myform" action="<?php echo base_url() ?>courses/pdfstudy" method="post">
+                                                 <input type="hidden" name="myid" id="id" value="<?php echo $row['topicid'] ?>" />
                                                  <input type="submit" class="btn btn-primary " value="Study" />
                                                  </form>
                         </div>

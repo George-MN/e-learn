@@ -355,36 +355,37 @@ else{
             </div>
         <div class="wrapper wrapper-content animated fadeInRight" >
             <div class="row">
-               
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>User Course % enrollment graph </h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Percentage number of users per course</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="flot-chart">
+                                <div class="flot-chart-pie-content" id="flot-pie-chart"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="ibox-content">
-                        <div id="morris-bar-chart"></div>
-                    </div>
                 </div>
+                
             </div>
-            </div>
-           
 
 
         </div>
@@ -409,30 +410,112 @@ else{
     <script src="<?php echo base_url(); ?>tempcss/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Morris -->
-    <script src="<?php echo base_url(); ?>tempcss/js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>tempcss/js/plugins/morris/raphael-2.1.0.min.js"></script>
     <script src="<?php echo base_url(); ?>tempcss/js/plugins/morris/morris.js"></script>
-
+ -->
     <!-- Custom and plugin javascript -->
     <script src="<?php echo base_url(); ?>tempcss/js/inspinia.js"></script>
     <script src="<?php echo base_url(); ?>tempcss/js/plugins/pace/pace.min.js"></script>
-
+     <script src="<?php echo base_url(); ?>tempcss/js/plugins/flot/jquery.flot.js"></script>
+    <script src="<?php echo base_url(); ?>tempcss/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="<?php echo base_url(); ?>tempcss/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="<?php echo base_url(); ?>tempcss/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="<?php echo base_url(); ?>tempcss/js/plugins/flot/jquery.flot.time.js"></script>
+     <!-- <script src="<?php echo base_url(); ?>tempcss/js/demo/flot-demo.js"></script> -->
     <!-- Morris demo data-->
     <!-- <script src="<?php //echo base_url(); ?>tempcss/js/demo/morris-demo.js"></script> -->
     <script type="text/javascript">
-         Morris.Bar({
-        element: 'morris-bar-chart',
-        data: [{ y: 'Anatomy', a: 30 },
-            { y: 'Health Informatics', a: 10 },
-            { y: 'Pharmacy', a: 20 },
-            { y: 'Phisiology', a: 33 },
-             ],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Enrollment % '],
-        hideHover: 'auto',
-        resize: true,
-        barColors: ['#1ab394', '#cacaca'],
-    });
+       var requestid= $.ajax({
+
+              type: 'post',
+              url: 'http://localhost/learn/admin/getusr',
+              data: {},
+              crossDomain: true,
+              cache: false,
+              beforeSend: function(){ $("#login").html('Connecting...');}
+         });
+         requestid.done(function(responseStr)
+                {
+                    var responseObj = $.parseJSON(responseStr);
+                    //alert(responseObj[0]['coursename']);
+                    var data=[];
+                    for(var i=0; i< responseObj.length; i++ ){
+                         var hexChar = ['0',  'A', 'B', '1', '2', '3', 'D', 'E','4', '5', '6', '7', '8', '9', 'C', 'F'];
+  
+                          var rgb = '#';
+                          for(var j = 0; j< 6; j++)
+                          {
+                            rgb += hexChar[Math.floor(Math.random() * hexChar.length)];
+                          }
+                          var col=rgb;
+                        data[i]={label: responseObj[i]['coursename'],
+                                  data:responseObj[i]['total'],
+                                  color: col };
+                     
+                    }
+                     var plotObj = $.plot($("#flot-pie-chart"), data, {
+                        series: {
+                            pie: {
+                                show: true
+                            }
+                        },
+                        grid: {
+                            hoverable: true
+                        },
+                        tooltip: true,
+                        tooltipOpts: {
+                            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+                            shifts: {
+                                x: 30,
+                                y: 0
+                            },
+                            defaultTheme: false
+                        }
+                    });
+
+                    //alert(responseObj.length);
+                    // $('#duration').val(responseObj[0]['duration']);
+                    // $('#category').val(responseObj[0]['coursetype']);
+
+                });
+
+    //       var data = [{
+    //     label: "Sales 1",
+    //     data: 21,
+    //     color: "#d3d3d3",
+    // }, {
+    //     label: "Sales 2",
+    //     data: 3,
+    //     color: "#bababa",
+    // }, {
+    //     label: "Sales 3",
+    //     data: 15,
+    //     color: "#79d2c0",
+    // }, {
+    //     label: "Sales 4",
+    //     data: 52,
+    //     color: "#1ab394",
+    // }];
+
+    // var plotObj = $.plot($("#flot-pie-chart"), data, {
+    //     series: {
+    //         pie: {
+    //             show: true
+    //         }
+    //     },
+    //     grid: {
+    //         hoverable: true
+    //     },
+    //     tooltip: true,
+    //     tooltipOpts: {
+    //         content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+    //         shifts: {
+    //             x: 20,
+    //             y: 0
+    //         },
+    //         defaultTheme: false
+    //     }
+    // });
     </script>
 
 </body>

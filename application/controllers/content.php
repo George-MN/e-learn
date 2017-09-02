@@ -208,6 +208,7 @@ class Content extends CI_controller{
 		$this->load->view('admin/videocontt',$data);
 
 }
+
     function studyvideo(){
 
 		$code= $this->input->post("id");
@@ -218,6 +219,12 @@ class Content extends CI_controller{
       	
       $this->load->view('admin/videoscont',$data);
  // }
+	}
+	function audiostudy(){
+		$code=$this->input->post('id');
+		$data['audio']=$this->course->myaudios($code);
+		$this->load->view('admin/audiosc',$data);
+
 	}
 	function assignment(){
 		$code=$this->input->post('code');
@@ -451,6 +458,11 @@ class Content extends CI_controller{
     	$code= $this->input->post('code');
     	$data["details"]= $this->writercourses->getusersenrolled($code);
     	$this->load->view('admin/enrolledusers',$data);
+    }
+    function mypdfs(){
+    	$code=$this->input->post('id');
+		$data['pdfs']=$this->writercourses->mypdfs($code);
+		$this->load->view('admin/mypdfsc',$data);
     }
 
 

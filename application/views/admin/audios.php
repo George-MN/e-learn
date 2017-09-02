@@ -106,17 +106,7 @@ else{
 
                       </ul>
                   </li>
-                  <li>
-                      <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Certification</span>  <!-- <span class="pull-right label label-primary">SPECIAL</span> --></a>
-                      <ul class="nav nav-second-level">
-                          <li><a href="<?php echo base_url(); ?>progress/certificate">Certificates</a></li>
-
-
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="<?php echo base_url(); ?>consult/consult"><i class="fa fa-flask"></i> <span class="nav-label">Consultation</span> </a>
-                  </li>
+                  
                   <li>
                       <a href="<?php echo base_url(); ?>consult/questions"><i class="fa fa-flask"></i> <span class="nav-label">FAQs</span> </a>
                   </li>
@@ -462,7 +452,7 @@ else{
                                         </div>
                                         
                                                 
-                                                <video width="500" height="400"
+                                                <audio width="500" height="400"
                                                        poster="http://hunch.se/tmp/Spotify_-_the_story.jpg"
                                                        autobuffer controls>
                                                   ';
@@ -470,11 +460,9 @@ else{
                                                   echo'<div class="fallback">
                                                         You must have an HTML5 capable browser.
                                                     </div>
-                                                </video>
+                                                </audio>
                                          <div class="modal-header">
-                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" align="center">
-                                          View full screen
-                                            </button>
+                                             
                                             
                                         </div> </div>
                                 </div>

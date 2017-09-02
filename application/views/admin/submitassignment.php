@@ -98,17 +98,7 @@ else{
 
                       </ul>
                   </li>
-                  <li>
-                      <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Certification</span>  <!-- <span class="pull-right label label-primary">SPECIAL</span> --></a>
-                      <ul class="nav nav-second-level">
-                          <li><a href="<?php echo base_url(); ?>progress/certificate">Certificates</a></li>
-
-
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="<?php echo base_url(); ?>consult/consult"><i class="fa fa-flask"></i> <span class="nav-label">Consultation</span> </a>
-                  </li>
+                  
                   <li>
                       <a href="<?php echo base_url(); ?>consult/questions"><i class="fa fa-flask"></i> <span class="nav-label">FAQs</span> </a>
                   </li>

@@ -244,7 +244,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                        <i class="fa fa-envelope"></i>  <!-- <span class="label label-warning">16</span> -->
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -297,7 +297,7 @@ else{
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        <i class="fa fa-bell"></i>  <!-- <span class="label label-primary">8</span> -->
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -393,7 +393,7 @@ else{
                                 <div class=""><?php echo $row['topicdesc']; ?></div></br>
                                 
                             </div>
-                            <form name="myform" id="myform" action="<?php echo base_url() ?>courses/study" method="post">
+                            <form name="myform" id="myform" action="<?php echo base_url() ?>content/mypdfs" method="post">
                                                  <input type="hidden" name="id" id="id" value="<?php echo $row['topicid'] ?>" />
                                                  <input type="submit" class="btn btn-primary " value="Study" />
                                                  </form>

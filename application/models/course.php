@@ -131,15 +131,15 @@ class Course extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('topic');
 		$this->db->where('coursecode',$code);
-		$this->db->where('status',1);
+		$this->db->where('status',0);
 		$this->db->order_by('topicnumber');
 		$resultquery=$this->db->get();
-		if($this->db->affected_rows()>0){
-			return $resultquery->result_array();
-		}
-		else{
-			return false;
-		}
+	// 	if($this->db->affected_rows()>0){
+		return $resultquery->result_array();
+	// 	}
+	// 	else{
+	// 		return false;
+	// 	}
 	}
 	function textcontent($code){
 		
@@ -227,6 +227,18 @@ class Course extends CI_Model{
     	$myquery=$this->db->get();
     	return $myquery->result_array();
 
+     }
+     function mypdfs($code){
+     	$this->db->select('*');
+		$this->db->from('pdf');
+		$this->db->where('topicid',$code);
+		$query1=$this->db->get();
+       if($this->db->affected_rows()>0){
+			return $query1->result_array();
+		}
+		else{
+			return false;
+		}
      }
 }
 

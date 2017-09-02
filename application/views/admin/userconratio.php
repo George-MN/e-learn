@@ -419,15 +419,38 @@ else{
     <!-- Morris demo data-->
     <!-- <script src="<?php //echo base_url(); ?>tempcss/js/demo/morris-demo.js"></script> -->
     <script type="text/javascript">
-        Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [
-            { label: "Learners %", value: 60 },
-            {label: "Admins %", value: 20 },
-            { label: "Content Writers %", value: 20 } ],
-        resize: true,
-        colors: ['#87d6c6', '#5fd143','#3e8c58'],
-    });
+     var requestid= $.ajax({
+
+              type: 'post',
+              url: 'http://localhost/learn/admin/getuserratio',
+              data: {},
+              crossDomain: true,
+              cache: false,
+              beforeSend: function(){ $("#login").html('Connecting...');}
+         });
+         requestid.done(function(responseStr)
+                {
+                    var responseObj = $.parseJSON(responseStr);
+                    var total=parseInt(responseObj[0]['usert'])+ parseInt(responseObj[1]['usert'])+ parseInt(responseObj[2]['usert']);
+                    //alert(total);
+                    var learn=100*(parseInt(responseObj[0]['usert'])/total);
+                    var cont= 100*(parseInt(responseObj[1]['usert'])/total);
+                    var admin=100*(parseInt(responseObj[2]['usert'])/total);
+                     Morris.Donut({
+          
+                            element: 'morris-donut-chart',
+                            data: [
+                                { label: "Learners %", value: learn },
+                                {label: "Admins %", value: admin },
+                                { label: "Content Writers %", value: cont } ],
+                            resize: true,
+                            colors: ['#87d6c6', '#5fd143','#3e8c58'],
+                        });
+                    //var lernvalue=
+                });
+         var me=0;
+       
+
     </script>
 
 </body>

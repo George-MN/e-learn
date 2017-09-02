@@ -55,6 +55,38 @@ class Verifylogin extends CI_controller {
             return FALSE;
         }
     }
+    function signup(){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('myemail', 'email', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('mypassword', 'mypasswordver', 'trim|required|xss_clean|callback_check_database');
+        $myemail=$this->input->post('myemail');
+        $first=$this->input->post('mypassword');
+        $second=$this->input->post('mypasswordver');
+        if($first != $second){
+             $data="Could not register, password mismatch";
+            $this->load->view('login_view.php',$data);
+        }
+        else{
+             $this->check_email($myemail,$first);
+        }
+       
+       
+    }
+    function check_email($email,$password){
+        $result=$this->users->checkem($email,$password);
+        if($result==true){
+            $this->form_validation->set_message('Successfully registred');
+             $data="you can log in ";
+            $this->load->view('login_view.php',$data);
+        }
+        else{
+               $this->form_validation->set_message('Email already exists, please try another');
+             $data="Use Another email ";
+            $this->load->view('login_view.php',$data);
+        }
+        }
+
+    
 
 }
 

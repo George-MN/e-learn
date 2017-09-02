@@ -77,6 +77,18 @@ class Serve extends CI_model{
          $this->db->where('user_id',$userid);
         $this->db->delete('users');
     }
+    function getenrollreport(){
+         $this->db->select('*');
+        $this->db->from('enrollreport');
+         $query=$this->db->get();
+        return $query->result_array();
+    }
+    function getuserratio(){
+          $this->db->select('*');
+        $this->db->from('usersratio');
+         $query=$this->db->get();
+        return $query->result_array();
+    }
 
 }
 

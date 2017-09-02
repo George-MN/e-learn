@@ -127,6 +127,14 @@ class Admin extends CI_controller{
 	function quizperformance(){
 		$this->load->view('admin/quizaveragereport');
 	}
+	function getusr(){
+		$results=$this->serve->getenrollreport();
+		echo json_encode($results);
+	}
+	function getuserratio(){
+		$results=$this->serve->getuserratio();
+		echo json_encode($results);
+	}
 
 	
 }

@@ -27,7 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <header class="codrops-header">
                 <h1>Welcome to the health E-learning portal</h1>
                 <p>get information about health anytime anywhere</p>
-                <span class="logerror"><?php echo validation_errors();  ?></span>
+                <span class="logerror"><?php echo validation_errors();  
+                  
+                 
+                  
+                ?></span>
             </header>
             <section>
 
@@ -66,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="content-style-form content-style-form-2">
                                     <span class="icon icon-close">Close the dialog</span>
                                     <h2>Sign Up</h2>
-                                    <form method="post" action = "homepage.php">
+                                    <form method="post" action = "<?php echo base_url(); ?>verifylogin/signup">
 
 
                                         <label>Email</label><input type="text" name='myemail' placeholder='Email' required='required'/>

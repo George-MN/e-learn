@@ -228,6 +228,18 @@ class Writercourses extends CI_Model{
 		$query=$this->db->get();
 		return $query->result_array();
 	}
+	function mypdfs($code){
+     	$this->db->select('*');
+		$this->db->from('pdf');
+		$this->db->where('topicid',$code);
+		$query1=$this->db->get();
+       if($this->db->affected_rows()>0){
+			return $query1->result_array();
+		}
+		else{
+			return false;
+		}
+     }
 
 
  
